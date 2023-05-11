@@ -7,12 +7,13 @@ fun List<Person>.sortByAge(): List<Person> {
 }
 
 fun List<Person>.sortByName(): List<Person> {
-    return this.sortedBy { it.surname }.sortedBy { it.name }
+    return this.sortedWith (compareBy({it.name}, {it.surname}, {it.age}))
 }
 
 fun main() {
     val list = listOf<Person>(
         Person("Юрий", "Тазик", 65),
+        Person("Антон", "Юдин", 47),
         Person("Антон", "Юдин", 23),
         Person("Антон", "Иванов", 35),
         Person("Андрей", "Петров", 23),
